@@ -17,14 +17,14 @@
 
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/springmvc/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<welcome-file-list>
+<!-- 	<welcome-file-list>
 		<welcome-file>springmvc/webcontest</welcome-file>
-	</welcome-file-list>
+	</welcome-file-list> -->
 </web-app>
