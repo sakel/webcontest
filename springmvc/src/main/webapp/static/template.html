@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<title>Insert title here</title>
+</head>
+<body>
+	<header id="pageHeader"><h1>WebContest</h1></header>
+	<article id="pageBody">
+		<aside id="loginFrame">
+			<h2 id="loginFrameTitle">Login</h2>
+			<form action="/springmvc/webcontest/login" method="post">
+				<div class="loginframe">
+					<div class="logintable">
+						<div class="logintablerow">
+							<div class="logincell">
+								<label class="labelslogin" for="username">Username: </label>
+							</div>
+							<div class="logincell">
+								<input class="inputslogin" type="text" name="username" />
+							</div>
+						</div>
+						<div class="logintablerow">
+							<div class="logincell">
+								<label class="labelslogin" for="password">Password: </label>
+							</div>
+							<div class="logincell">
+								<input class="inputslogin" type="password" name="password" />
+							</div>
+						</div>
+					</div>
+					<div class="loginsubmit">
+						<input type="submit" value="Login" />
+					</div>
+				</div>
+			</form>
+		</aside>
+	</article>
+	<footer id="pageFooter">&nbsp;</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+header#pageHeader {
+	background: black;
+	color: white;
+	padding: 10px;
+	font-size: 10px;
+}
+
+article#pageBody {
+	background: gray;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	height: auto;
+	min-height: 400px;
+}
+
+footer#pageFooter {
+	background: black;
+	height: 60px;
+}
+
+article#pageBody aside#loginFrame {
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 244px;
+}
+
+h2#loginFrameTitle {
+	margin-top: 0;
+}
+
+div.logintable {
+	display: table;
+}
+
+div.logintablerow {
+	display: table-row;
+}
+
+div.logincell {
+	display: table-cell;
+	text-align: right;
+}
+
+div.loginsubmit {
+	margin-top: 5px;
+	width: 244;
+	text-align: center;
+}
+
+label.labelslogin {
+	width: 120px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+input.inputslogin {
+	width: 120px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 2px;
+}
