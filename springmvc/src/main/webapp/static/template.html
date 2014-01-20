@@ -6,31 +6,93 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header id="pageHeader"><h1>WebContest</h1></header>
+	<header id="pageHeader">
+		<h1>WebContest</h1>
+	</header>
 	<article id="pageBody">
 		<aside id="loginFrame">
-			<h2 id="loginFrameTitle">Login</h2>
+			<h2 id="formFrameTitle">Login</h2>
 			<form action="/springmvc/webcontest/login" method="post">
 				<div class="loginframe">
-					<div class="logintable">
-						<div class="logintablerow">
-							<div class="logincell">
-								<label class="labelslogin" for="username">Username: </label>
+					<div class="formtable">
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelslogin" for="username">Email: </label>
 							</div>
-							<div class="logincell">
+							<div class="formcell">
 								<input class="inputslogin" type="text" name="username" />
 							</div>
 						</div>
-						<div class="logintablerow">
-							<div class="logincell">
+						<div class="formtablerow">
+							<div class="formcell">
 								<label class="labelslogin" for="password">Password: </label>
 							</div>
-							<div class="logincell">
+							<div class="formcell">
 								<input class="inputslogin" type="password" name="password" />
 							</div>
 						</div>
 					</div>
-					<div class="loginsubmit">
+					<div class="formsubmit">
+						<input type="submit" value="Login" />
+					</div>
+				</div>
+			</form>
+		</aside>
+
+		<aside id="registrationFrame">
+			<h2 id="formFrameTitle">Registration</h2>
+			<form action="/springmvc/webcontest/register" method="post">
+				<div class="registerframe">
+					<div class="formtable">
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelsregister" for="username">Name: </label>
+							</div>
+							<div class="formcell">
+								<input class="inputsregister" type="text" name="name" />
+							</div>
+						</div>
+						<div class="formtablerow">
+							<div class="formcellcolspan">
+								<label class="validationerror">* Error: Blah blah blah blah</label>
+							</div>
+						</div>
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelsregister" for="username">Surname: </label>
+							</div>
+							<div class="formcell">
+								<input class="inputsregister" type="text" name="surname" />
+							</div>
+						</div>
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelsregister" for="email">Email: </label>
+							</div>
+							<div class="formcell">
+								<input class="inputsregister" type="text" name="email" />
+							</div>
+						</div>
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelsregister" for="password">Password: </label>
+							</div>
+							<div class="formcell">
+								<input class="inputsregister" type="password" name="password" />
+							</div>
+						</div>
+						<div class="formtablerow">
+							<div class="formcell">
+								<label class="labelsregister" for="password">Repeat
+									password: </label>
+							</div>
+							<div class="formcell">
+								<input class="inputsregister" type="password"
+									name="repeatPassword" />
+							</div>
+						</div>
+					</div>
+					<div class="formsubmit">
 						<input type="submit" value="Login" />
 					</div>
 				</div>

@@ -16,6 +16,9 @@ public class User implements Serializable {
 	private String lastName;
 	private Password password;
 	
+	public User() {
+	}
+	
 	public String getEmail() {
 		return email;
 	}

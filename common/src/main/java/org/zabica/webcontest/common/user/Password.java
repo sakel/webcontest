@@ -19,6 +19,10 @@ public class Password implements Serializable {
 	 */
 	private static final long serialVersionUID = -80392116173513730L;
 	
+	private static final int iterations = 10*1024;
+    private static final int saltLen = 32;
+    private static final int desiredKeyLen = 256;
+	
 	private String hash;
 	
 	public Password() {
@@ -27,11 +31,7 @@ public class Password implements Serializable {
 	public Password(String hash) {
 		this.hash = hash;
 	}
-	
-    private static final int iterations = 10*1024;
-    private static final int saltLen = 32;
-    private static final int desiredKeyLen = 256;
-
+    
     public boolean isValid(String password) {
         String[] saltAndPass = this.hash.split("\\$");
         if (saltAndPass.length != 2)

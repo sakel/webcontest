@@ -3,8 +3,8 @@
 header#pageHeader {
 	background: black;
 	color: white;
-	padding: 10px;
-	font-size: 10px;
+	border-bottom: 0 none;
+	margin: 0;
 }
 
 article#pageBody {
@@ -13,7 +13,6 @@ article#pageBody {
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
-	width: 960px;
 	height: auto;
 	min-height: 400px;
 }
@@ -29,30 +28,18 @@ article#pageBody aside#loginFrame {
 	margin-right: auto;
 	left: 0;
 	right: 0;
-	width: 244px;
 }
 
-h2#loginFrameTitle {
+article#pageBody aside#registrationFrame {
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+h2#formFrameTitle {
 	margin-top: 0;
-}
-
-div.logintable {
-	display: table;
-}
-
-div.logintablerow {
-	display: table-row;
-}
-
-div.logincell {
-	display: table-cell;
-	text-align: right;
-}
-
-div.loginsubmit {
-	margin-top: 5px;
-	width: 244;
-	text-align: center;
 }
 
 label.labelslogin {
@@ -67,4 +54,24 @@ input.inputslogin {
 	margin-top: 1px;
 	margin-bottom: 1px;
 	margin-left: 2px;
+}
+
+label.labelsregister {
+	width: 150px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+input.inputsregister {
+	width: 150px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 2px;
+}
+
+label.validationerror {
+	width: 300px;
+	color: red;
+	font-size: 8px;
 }
