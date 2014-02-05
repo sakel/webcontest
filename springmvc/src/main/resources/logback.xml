@@ -8,9 +8,12 @@
     </encoder>
   </appender>
   
-  <logger name="org.springframework" level="WARN" appender="STDOUT"/>
+  <logger name="org.springframework" level="DEBUG" appender="STDOUT"/>
+
+  <logger name="org.zabica" level="DEBUG" appender="STDOUT" />
 
   <root level="debug">
+  	<!-- <appender ref="STDOUT" /> -->
   </root>
 </configuration>
 

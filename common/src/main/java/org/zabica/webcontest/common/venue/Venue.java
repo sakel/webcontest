@@ -3,29 +3,51 @@ package org.zabica.webcontest.common.venue;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
-public class Venue implements Serializable {
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
+public class Venue implements Serializable,Comparable<Venue> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7797391270084855256L;
 
+	private String id;
+	
+	private String title;
+	private String description;
+	
 	//Start date/hour
+	@DateTimeFormat
 	private Date start;
+	
 	//Duration of the venue in days
 	private Integer duration;
+	
 	//Last date when the registration is possible
+	@DateTimeFormat
 	private Date registrationDeadline;
+	
 	//Maximum number of attendees
 	private Integer maxAttendees;
 	
 	//Venue Fees
-	private List<VenueFee> fees;
+	@NumberFormat
+	private double fee;
 	
 	//Location
-	private LocationAddress location;
+	private String location;
 
+	//Tags
+	private List<String> tags;
+	
+	public Venue() {
+		this.id = UUID.randomUUID().toString();
+	}
+	
 	public Date getStart() {
 		return start;
 	}
@@ -50,16 +72,51 @@ public class Venue implements Serializable {
 	public void setMaxAttendees(Integer maxAttendees) {
 		this.maxAttendees = maxAttendees;
 	}
-	public LocationAddress getLocation() {
+	public String getLocation() {
 		return location;
 	}
-	public void setLocation(LocationAddress location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
-	public List<VenueFee> getFees() {
-		return fees;
+	public List<String> getTags() {
+		return tags;
 	}
-	public void setFees(List<VenueFee> fees) {
-		this.fees = fees;
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public double getFee() {
+		return fee;
+	}
+	public void setFee(double fee) {
+		this.fee = fee;
+	}
+	@Override
+	public int compareTo(Venue o) {
+		if(this.start.before(o.getStart())) {
+			return -1;
+		} else if(this.start.after(o.getStart())) {
+			return 1;
+		}
+		return 0;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

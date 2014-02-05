@@ -15,6 +15,7 @@ article#pageBody {
 	margin-right: auto;
 	height: auto;
 	min-height: 400px;
+	padding-top: 20px;
 }
 
 footer#pageFooter {
@@ -74,4 +75,49 @@ label.validationerror {
 	width: 300px;
 	color: red;
 	font-size: 8px;
+}
+
+.erroralert {
+	padding: 5px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	text-align: center;
+}
+
+.or {
+	text-align: center;
+	padding: 6px 12px;
+}
+
+.contesticon {
+	color: #000000;
+}
+
+a.contesticon:hover {
+	color: #BBBBBB;
+}
+
+.langflag {
+	width: 30px;
+	height: 16px;
+}
+
+button.searchButton {
+	height: 32px;
+}
+
+span.searchButton {
+	padding: 0;
+}
+
+tr.mouseover:hover {
+	cursor: pointer;
+	background-color: #EEEEFF !important;
+}
+
+tr.conferences:nth-child(even) {
+	background-color: #DDDDDD;
 }

@@ -1,8 +1,7 @@
 package org.zabica.webcontest.common.user;
 
 import java.io.Serializable;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import java.util.Locale;
 
 public class User implements Serializable {
 
@@ -14,7 +13,8 @@ public class User implements Serializable {
 	private String email;
 	private String firstName;
 	private String lastName;
-	private Password password;
+	private String password;
+	private Locale locale = Locale.US;
 	
 	public User() {
 	}
@@ -37,10 +37,30 @@ public class User implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
 	public boolean isPasswordValid(String password) {
-		return this.password.isValid(password);
+		return this.password.equals(password);
 	}
-	public void setPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-		this.password = Password.encryptPassword(password);
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return getEmail()+":"
+					+password;
+	}
+
+	public Locale getLocale() {
+		return locale;
+	}
+
+	public void setLocale(Locale locale) {
+		this.locale = locale;
 	}
 }

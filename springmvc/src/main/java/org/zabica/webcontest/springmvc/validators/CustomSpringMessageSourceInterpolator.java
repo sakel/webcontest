@@ -5,6 +5,8 @@ import java.util.Locale;
 import javax.validation.MessageInterpolator;
 
 import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
@@ -12,26 +14,30 @@ import org.springframework.context.NoSuchMessageException;
 
 public class CustomSpringMessageSourceInterpolator extends ResourceBundleMessageInterpolator implements MessageInterpolator, MessageSourceAware, InitializingBean {
 
+	private static final Logger LOG = LoggerFactory.getLogger(CustomSpringMessageSourceInterpolator.class);
+	
 	private MessageSource messageSource;
 
 	@Override
 	public String interpolate(String messageTemplate, Context context) {
+		String resolvedMsg = null;
 		try {
-			return resolveMessage(messageTemplate, context, Locale.getDefault());
+			resolvedMsg = resolveMessage(messageTemplate, context, Locale.getDefault());
 		} catch (NoSuchMessageException e) {
-			System.out.println("Nope...");
 			return super.interpolate(messageTemplate, context);
 		}
+		return super.interpolate(resolvedMsg, context, Locale.getDefault());
 	}
 
 	@Override
 	public String interpolate(String messageTemplate, Context context, Locale locale) {
+		String resolvedMsg = null;
 		try {
-			return resolveMessage(messageTemplate, context, Locale.getDefault());
+			resolvedMsg = resolveMessage(messageTemplate, context, locale);
 		} catch (NoSuchMessageException e) {
-			System.out.println("Nope...");
 			return super.interpolate(messageTemplate, context, locale);
 		}
+		return super.interpolate(resolvedMsg, context, locale);
 	}
 
 	public void setMessageSource(MessageSource messageSource) {
@@ -50,8 +56,13 @@ public class CustomSpringMessageSourceInterpolator extends ResourceBundleMessage
 
 	private String resolveMessage(String messageTemplate, Context context, Locale locale) throws NoSuchMessageException {
 
+		LOG.debug("Message template: " + messageTemplate);
+		if(!messageTemplate.startsWith("{") || !messageTemplate.endsWith("}")) {
+			return messageTemplate;
+		}
+		
 		String classname = null;
-		for(Class c : context.getConstraintDescriptor().getConstraintValidatorClasses()) {
+		for(@SuppressWarnings("rawtypes") Class c : context.getConstraintDescriptor().getConstraintValidatorClasses()) {
 			classname = c.getSimpleName().replace("Validator", "");
 			break;
 		}

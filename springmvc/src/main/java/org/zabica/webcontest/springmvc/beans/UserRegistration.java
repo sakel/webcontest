@@ -1,32 +1,33 @@
 package org.zabica.webcontest.springmvc.beans;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.zabica.webcontest.springmvc.validators.PasswordInput;
 import org.zabica.webcontest.springmvc.validators.RepeatPasswordEquals;
 
-@RepeatPasswordEquals
+@RepeatPasswordEquals(message="{rpassword.invalid}")
 public class UserRegistration implements PasswordInput {
 
 	private static final String EMAIL_PATTERN = 
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
-	@NotBlank
+	@NotBlank(message="{name.blank}")
 	private String name;
 	
-	@NotBlank
+	@NotBlank(message="{surname.blank}")
 	private String surname;
 	
-	@NotNull
-	@Pattern(regexp=EMAIL_PATTERN)
+	@Size(min=5, max=40,message="{email.length}")
+	@Pattern(regexp=EMAIL_PATTERN, message="{email.invalid}")
 	private String email;
 	
-	@NotBlank()
+	@Size(min=4, max=20, message="{password.length}")
+	@NotBlank(message="{password.blank}")
 	private String password;
 	
-	@NotBlank(message="{repeatPassword}")
+	@NotBlank(message="{password.blank}")
 	private String repeatPassword;
 	
 	public UserRegistration() {

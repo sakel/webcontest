@@ -1,23 +1,20 @@
 package org.zabica.webcontest.common.user;
 
-import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-
 import org.apache.commons.codec.binary.Base64;
 
-public class Password implements Serializable {
+public class Password {
 	
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -80392116173513730L;
 	
 	private static final int iterations = 10*1024;
     private static final int saltLen = 32;
@@ -52,7 +49,15 @@ public class Password implements Serializable {
         return new Password(Base64.encodeBase64String(salt) + "$" + hash(password, salt));
     }
 
-    /**
+    public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
+	}
+
+	/**
      * Let's create a shash of the password 
      * 
      * @param password
