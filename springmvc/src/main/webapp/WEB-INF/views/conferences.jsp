@@ -31,7 +31,7 @@
 			<table class="table">
 				<tr>
 					<th><spring:message code='conf.start' text='Start' /></th>
-					<th><spring:message code='conf.name' text='Name' /></th>
+					<th><spring:message code='conf.title' text='Name' /></th>
 					<th><spring:message code='conf.description' text='Start' /></th>
 					<th><spring:message code='conf.location' text='Location' /></th>
 				</tr>

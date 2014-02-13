@@ -24,6 +24,10 @@
       <groupId>net.sourceforge.stripes</groupId>
       <artifactId>stripes</artifactId>
     </dependency>
+    <dependency>
+    	<groupId>org.zabica.webcontest</groupId>
+    	<artifactId>common</artifactId>
+    </dependency>
   </dependencies>
 </project>
 

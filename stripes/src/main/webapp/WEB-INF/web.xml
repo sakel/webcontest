@@ -10,28 +10,27 @@
 
 		<init-param>
 			<param-name>ActionResolver.Packages</param-name>
-			<param-value>org.zabica.webcontest.stripes</param-value>
+			<param-value>org.zabica.webcontest.stripes.actions</param-value>
 		</init-param>
 
 		<init-param>
-			<param-name>LocalePicker.Locales</param-name>
-			<param-value>sl_SI:UTF-8</param-value>
+			<param-name>LocalePicker.Class</param-name>
+			<param-value>org.zabica.webcontest.stripes.converter.extensions.SettingsBasedLocalePicker</param-value>
 		</init-param>
-
-	</filter>
-
-	<filter>
-		<filter-name>default</filter-name>
-		<filter-class>net.sourceforge.stripes.controller.DynamicMappingFilter</filter-class>
-
+ 		
 		<init-param>
-			<param-name>ActionResolver.Packages</param-name>
-			<param-value>org.zabica.webcontest.stripes</param-value>
+			<param-name>LocalePicker.Encoding</param-name>
+			<param-value>UTF-8</param-value>
 		</init-param>
 
 		<init-param>
-			<param-name>LocalePicker.Locales</param-name>
-			<param-value>sl_SI:UTF-8</param-value>
+    		<param-name>ActionBeanContext.Class</param-name>
+    		<param-value>org.zabica.webcontest.stripes.beans.SessionActionBeanContext</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>Interceptor.Classes</param-name>
+			<param-value>net.sourceforge.stripes.integration.spring.SpringInterceptor,org.zabica.webcontest.stripes.beans.LoginInterceptor</param-value>
 		</init-param>
 	</filter>
 
@@ -57,5 +56,14 @@
 	<welcome-file-list>
 		<welcome-file>views/index.jsp</welcome-file>
 	</welcome-file-list>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
 
 </web-app>

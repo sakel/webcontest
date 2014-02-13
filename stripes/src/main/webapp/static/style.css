@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+
+header#pageHeader {
+	background: black;
+	color: white;
+	border-bottom: 0 none;
+	margin: 0;
+}
+
+article#pageBody {
+	background: gray;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	min-height: 400px;
+	padding-top: 20px;
+}
+
+footer#pageFooter {
+	background: black;
+	height: 60px;
+}
+
+article#pageBody aside#loginFrame {
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+article#pageBody aside#registrationFrame {
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+h2#formFrameTitle {
+	margin-top: 0;
+}
+
+label.labelslogin {
+	width: 120px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+input.inputslogin {
+	width: 120px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 2px;
+}
+
+label.labelsregister {
+	width: 150px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+input.inputsregister {
+	width: 150px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: 2px;
+}
+
+label.validationerror {
+	width: 300px;
+	color: red;
+	font-size: 8px;
+}
+
+.erroralert {
+	padding: 5px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	text-align: center;
+}
+
+.or {
+	text-align: center;
+	padding: 6px 12px;
+}
+
+.contesticon {
+	color: #000000;
+}
+
+a.contesticon:hover {
+	color: #BBBBBB;
+}
+
+.langflag {
+	width: 30px;
+	height: 16px;
+}
+
+button.searchButton {
+	height: 32px;
+}
+
+span.searchButton {
+	padding: 0;
+}
+
+tr.mouseover:hover {
+	cursor: pointer;
+	background-color: #EEEEFF !important;
+}
+
+tr.conferences:nth-child(even) {
+	background-color: #DDDDDD;
+}

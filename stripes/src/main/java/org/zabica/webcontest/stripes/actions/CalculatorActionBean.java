@@ -1,4 +1,4 @@
-package org.zabica.webcontest.stripes.webcontest;
+package org.zabica.webcontest.stripes.actions;
 
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.Resolution;

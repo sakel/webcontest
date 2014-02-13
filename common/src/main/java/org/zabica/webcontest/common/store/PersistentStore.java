@@ -88,14 +88,13 @@ public class PersistentStore {
 	}
 	
 	public List<User> getAllUsers() {
-		return this.graph.getAll(hg.type(User.class));
+		return this.graph.getAll(hg.typePlus(User.class));
 	}
 	
 	public List<Conference> getConferences(Date date, List<String> tags) {
 		List<Conference> selected_confs = new ArrayList<>();
 		if(date == null)
 			date = new Date();
-		//hg.gt("start", date)
 		List<Conference> confs = this.graph.getAll(hg.and(hg.type(Conference.class), hg.gt("start", date)));
 		if(tags == null || tags.isEmpty()) {
 			return confs;
@@ -127,5 +126,11 @@ public class PersistentStore {
 	public Conference getConference(String uuid) {
 		Conference conf = this.graph.getOne(hg.and(hg.type(Conference.class), hg.eq("id", uuid)));
 		return conf;
+	}
+	
+	public void remConference(String uuid) {
+		Conference conf = this.graph.getOne(hg.and(hg.type(Conference.class), hg.eq("id", uuid)));
+		HGHandle handle = this.graph.getHandle(conf);
+		this.graph.remove(handle);
 	}
 }
