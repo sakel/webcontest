@@ -43,7 +43,7 @@
 				<div class="form-group">
 					<label for="start" class="col-sm-4 control-label"><spring:message code='conf.start' text='Start'/></label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="start" placeholder="<spring:message code='date.format' text='mm/dd/yyyy'/>" name="start" />
+						<input type="text" class="form-control datepicker" id="start" placeholder="<spring:message code='date.format' text='mm/dd/yyyy'/>" name="start" role="datepicker" />
 					</div>
 				</div>
 				<c:if test="${errors.start != null}">
@@ -69,7 +69,7 @@
 				<div class="form-group">
 					<label for="registrationDeadline" class="col-sm-4 control-label"><spring:message code='conf.regdeadline' text='Registration open untill'/></label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="registrationDeadline" placeholder="<spring:message code='date.format' text='mm/dd/yyyy'/>" name="registrationDeadline" />
+						<input type="text" class="form-control" id="registrationDeadline" placeholder="<spring:message code='date.format' text='mm/dd/yyyy'/>" name="registrationDeadline" role="datepicker" />
 					</div>
 				</div>
 				<c:if test="${errors.registrationDeadline != null}">
@@ -133,6 +133,9 @@
 				</c:if>
 				<div class="form-group">
 					<div class="col-sm-offset-4 col-sm-2">
+						<a role="button" href="conferences" class="btn btn-default"><spring:message code="button.back" text="Back" /></a>
+					</div>
+					<div class="col-sm-2">
 						<button type="submit" class="btn btn-default"><spring:message code='addconf.submit' text='Submit'/></button>
 					</div>
 				</div>

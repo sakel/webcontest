@@ -27,6 +27,7 @@ public class UserRegistration implements PasswordInput {
 	@NotBlank(message="{password.blank}")
 	private String password;
 	
+	@Size(min=4, max=20, message="{password.length}")
 	@NotBlank(message="{password.blank}")
 	private String repeatPassword;
 	

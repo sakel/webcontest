@@ -10,13 +10,18 @@
 	<c:set var="querystring" value="?${pageContext.request.queryString}" />
 	
 </c:if>
+
+<spring:message code="date.format" text="dd.MM.yyyy" var="dateformat"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${contextpath}/static/datepicker.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/bootstrap.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/font-awesome.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/style.css" media="screen" />
+<script src="${contextpath}/static/jquery-1.11.0.js"></script>
+<script src="${contextpath}/static/bootstrap-datepicker.js"></script>
 <title>WebContest</title>
 </head>
 <body>

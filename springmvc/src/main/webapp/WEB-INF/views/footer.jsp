@@ -10,6 +10,16 @@
 	</div>
 </footer>
 
+<script>
+$(function(){
+	window.prettyPrint && prettyPrint();
+	$("input[role='datepicker']").datepicker({
+	format: '${fn:toLowerCase(dateformat)}',
+	todayBtn: 'linked'
+	});
+});
+</script>
+
 <script src="/springmvc/static/bootstrap.js">
 	/*!
 	* Bootstrap v3.0.3 (http://getbootstrap.com)

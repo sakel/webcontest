@@ -1,25 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld"%>
+<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes-dynattr.tld"%>
 
+<!DOCTYPE html>
 <c:set var="contextpath" value="${requestScope['javax.servlet.forward.context_path']}" />
 <c:if test="${not empty pageContext.request.queryString}">
 	<c:set var="querystring" value="?${pageContext.request.queryString}" />
 </c:if>
 
 <fmt:setBundle basename="StripesResources"/>
-
-<!DOCTYPE html>
+<fmt:message key='date.format' var="dateformat"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/bootstrap.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/font-awesome.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${contextpath}/static/datepicker.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="${contextpath}/static/style.css" media="screen" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="${contextpath}/static/jquery-1.11.0.js"></script>
+<script src="${contextpath}/static/bootstrap-datepicker.js"></script>
+
 <title>WebContest</title>
 </head>
 <body>

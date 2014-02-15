@@ -16,11 +16,24 @@
 	<aside class="col-md-offset-2 col-md-8">
 		<form:form action="${contextpath}/webcontest/conferences" commandName="conffilter" method="post" class="form-horizontal" role="form">
 			<div class="input-group">
-				<span class="input-group-addon"><span class="fa fa-tag"></span></span> <input name="tags" type="text" class="form-control" /> <span
-					class="input-group-addon"><span class="fa fa-calendar"></span></span> <input name="date" type="text" class="form-control" /> <span
-					class="input-group-addon searchButton"><button type="submit" class="searchButton">
+				<span class="input-group-addon">
+					<span class="fa fa-tag"></span>
+				</span>
+				<input name="tags" type="text" class="form-control" />
+				<span class="input-group-addon">
+					<span class="fa fa-calendar"></span>
+				</span>
+				<input name="date" type="text" class="form-control" role="datepicker" />
+				<span class="input-group-addon searchButton">
+					<button type="submit" class="searchButton">
 						<span class="fa fa-search"></span>
-					</button></span> <span class="input-group-addon"><a href="addconference" class="contesticon"><span class="fa fa-plus"></span></a></span>
+					</button>
+				</span>
+				<span class="input-group-addon">
+					<a href="addconference" class="contesticon">
+						<span class="fa fa-plus"></span>
+					</a>
+				</span>
 			</div>
 		</form:form>
 		<div class="btn-toolbar" role="toolbar"></div>

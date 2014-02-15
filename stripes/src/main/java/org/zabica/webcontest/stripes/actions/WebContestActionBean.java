@@ -81,11 +81,11 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	@Validate(converter=TagConverter.class, on = { "conferences" })
 	private List<String> tags;
 	
-	
 	private String confid;
 	
 	private List<Conference> conferences;
 	
+	private Date now = new Date();
 	private boolean alreadyExists;
 	private List<User> users;
 	
@@ -132,7 +132,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 		if(!this.dbbean.addUser(this.register)) {
 			LOG.error("Could not persist user: " + this.register.getEmail());
 			setAlreadyExists(true);
-			return new ForwardResolution("/views/users.jsp");
+			return new ForwardResolution("/views/register.jsp");
 		}
 		
 		return new RedirectResolution(WebContestActionBean.class);
@@ -341,6 +341,14 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 
 	public void setConfid(String confid) {
 		this.confid = confid;
+	}
+
+	public Date getNow() {
+		return now;
+	}
+
+	public void setNow(Date now) {
+		this.now = now;
 	}
 	
 }

@@ -81,7 +81,7 @@ public class WebContest {
 			return new RedirectView("/webcontest/conferences", true);
 		}
 		
-		ModelAndView mav = new ModelAndView("index");
+		ModelAndView mav = new ModelAndView("login");
 		if (name != null) {
 			User user = new User();
 			user.setFirstName(name);

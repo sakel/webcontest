@@ -49,7 +49,7 @@
 						<spring:message code="login.or" text="or"/>
 					</div>
 					<div class="col-sm-2">
-						<a role="button" href="register" class="btn btn-default"><spring:message code="login.register" text="Register"/></a>
+						<a role="button" href="${contextpath}/webcontest/register" class="btn btn-default"><spring:message code="login.register" text="Register"/></a>
 					</div>
 				</div>
 			</form:form>

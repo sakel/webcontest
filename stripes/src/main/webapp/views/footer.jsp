@@ -3,13 +3,23 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld"%>
+<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes-dynattr.tld"%>
 
 <footer id="pageFooter" class="container">
 	<div class="row">
 		<div class="col-md-12"></div>
 	</div>
 </footer>
+
+<script>
+$(function(){
+	window.prettyPrint && prettyPrint();
+	$("input[role='datepicker']").datepicker({
+	format: '${fn:toLowerCase(dateformat)}',
+	todayBtn: 'linked'
+	});
+});
+</script>
 
 <script src="/stripes/static/bootstrap.js">
 	/*!

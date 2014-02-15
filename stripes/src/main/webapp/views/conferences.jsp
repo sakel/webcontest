@@ -3,7 +3,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld"%>
+<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes-dynattr.tld" %>
 
 <%@ include file="header.jsp"%>
 
@@ -19,12 +19,14 @@
 				<span class="input-group-addon">
 					<span class="fa fa-tag"></span>
 				</span>
+			
 				<input name="tags" type="text" class="form-control" />
 				<span class="input-group-addon">
 					<span class="fa fa-calendar"></span>
 				</span>
-				<input name="date" type="text" class="form-control" />
-				<span class="input-group-addon searchButton">
+				
+				<stripes:text name="date" class="form-control" formatType="date" formatPattern="${dateformat}" role="datepicker"></stripes:text>
+    			<span class="input-group-addon searchButton">
 					<button type="submit" name="conferences" class="searchButton">
 						<span class="fa fa-search"></span>
 					</button>
@@ -41,7 +43,7 @@
 	<aside class="col-md-offset-2 col-md-8">
 		<div class="panel panel-default">
 			<!-- Table -->
-			<table class="table">
+			<table class="table fixedtable">
 				<tr>
 					<th><fmt:message key='conf.start' /></th>
 					<th><fmt:message key='conf.title' /></th>
@@ -54,9 +56,9 @@
 					</stripes:url>
 					<tr class="conferences mouseover" onclick="location.href='${confurl}';">
 						<td>${conference.start}</td>
-						<td>${conference.title}</td>
-						<td>${conference.description}</td>
-						<td>${conference.location}</td>
+						<td>${fn:escapeXml(conference.title)}</td>
+						<td>${fn:escapeXml(conference.description)}</td>
+						<td>${fn:escapeXml(conference.location)}</td>
 					</tr>
 				</c:forEach>
 			</table>

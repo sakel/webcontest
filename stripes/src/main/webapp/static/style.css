@@ -121,3 +121,8 @@ tr.mouseover:hover {
 tr.conferences:nth-child(even) {
 	background-color: #DDDDDD;
 }
+
+table.fixedtable {
+	word-wrap: break-word !important;
+	table-layout: fixed !important;
+}

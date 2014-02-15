@@ -3,7 +3,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld"%>
+<%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes-dynattr.tld"%>
 
 <%@ include file="header.jsp"%>
 
@@ -59,7 +59,7 @@
 						<fmt:message key="conf.start" />
 					</stripes:label>
 					<div class="col-sm-5">
-						<stripes:text class="form-control" id="conf.start" name="conference.start" />
+						<stripes:text class="form-control" id="conf.start" name="conference.start" role="datepicker"/>
 					</div>
 					<div class="col-sm-3">
 						<fmt:message key="date.format" />
@@ -82,7 +82,7 @@
 						<fmt:message key="conf.duration" />
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.duration" name="conference.duration" />
+						<stripes:text class="form-control datepicker" id="conf.duration" name="conference.duration" />
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.duration')}">
@@ -102,7 +102,7 @@
 						<fmt:message key="conf.regdeadline" />
 					</stripes:label>
 					<div class="col-sm-5">
-						<stripes:text class="form-control" id="conf.regdeadline" name="conference.registrationDeadline" />
+						<stripes:text class="form-control" id="conf.regdeadline" name="conference.registrationDeadline" role="datepicker" />
 					</div>
 					<div class="col-sm-3">
 						<fmt:message key="date.format" />
