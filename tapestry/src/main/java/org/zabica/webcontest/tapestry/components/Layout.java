@@ -9,7 +9,7 @@ import org.apache.tapestry5.SymbolConstants;
 /**
  * Layout component for pages of application tapestry.
  */
-@Import(stylesheet = "context:layout/layout.css")
+@Import(stylesheet = {"context:layout/layout.css"})
 public class Layout
 {
     /**
