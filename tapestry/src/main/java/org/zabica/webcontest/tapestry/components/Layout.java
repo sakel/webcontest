@@ -18,7 +18,7 @@ public class Layout
     @Property
     @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
     private String title;
-
+    
     @Property
     private String pageName;
 
@@ -48,6 +48,6 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "About", "Contact"};
+        return new String[]{"Index", "About", "Contact", "Login", "Register"};
     }
 }

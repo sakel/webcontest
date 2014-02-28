@@ -1,0 +1,33 @@
+<html t:type="layout" title="${message:login.title}"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+      <t:form  method="post" class="form-horizontal">
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="email">
+					${message:login.email}
+				</t:label>
+				<div class="col-sm-8">
+					<t:textfield class="form-control" t:id="email" t:value="email" placeholder="${message:login.email}"></t:textfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="password">
+					${message:login.password}
+				</t:label>
+				<div class="col-sm-8">
+					<t:passwordfield class="form-control" t:id="password" t:value="password" placeholder="${message:login.password}"></t:passwordfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-2">
+					<t:submit class="btn btn-default" value="${message:login.submit}"></t:submit>
+				</div>
+				<div class="col-sm-1 or">
+					${message:login.or}
+				</div>
+				<div class="col-sm-2">
+					<t:pagelink class="btn btn-default" page="register">${message:login.register}</t:pagelink>
+				</div>
+			</div>
+		</t:form>
+</html>

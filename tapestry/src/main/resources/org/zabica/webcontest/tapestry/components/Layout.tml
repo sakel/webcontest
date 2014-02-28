@@ -3,7 +3,7 @@
 	for free under a Creative Commons Attribution 2.5 License Title : Concrete 
 	(modified for Tapestry) Version : 1.0 Released : 20080825 Description: A 
 	Web 2.0 design with fluid width suitable for blogs and small websites. -->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	xmlns:p="tapestry:parameter">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -29,10 +29,11 @@
 					</div>
 					<t:if test="true">
 						<div class="col-md-2">
-							<img class="langflag" alt="Slovensko" src="${context:layout/images/slo.png}" />
-							<img class="langflag" alt="English" src="${context:layout/images/usa.png}" />
+							<t:pagelink page="language" parameters="[locale=sl_SI,source=url]"><img class="langflag" alt="Slovensko" src="${context:layout/images/slo.png}" /></t:pagelink>
+							<t:pagelink page="language" parameters="[locale=en_US,source=url]"><img class="langflag" alt="English" src="${context:layout/images/usa.png}" /></t:pagelink>
 						</div>
 						<div class="col-md-1">
+							<t:pagelink page="logout">${message:logout}</t:pagelink>
 						</div>
 					</t:if>
 				</div>
@@ -46,7 +47,9 @@
 						${title}
 					</h2>
 				</div>
-				<t:body />		
+				<div class="col-md-6 col-md-offset-3">
+					<t:body />		
+				</div>
 				<br style="clear: both;" />
 			</aside>
 		</article>

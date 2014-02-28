@@ -1,0 +1,51 @@
+<html t:type="layout" title="${message:register.title}"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+      <t:form  method="post" class="form-horizontal">
+      		<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="name">
+					${message:register.name}
+				</t:label>
+				<div class="col-sm-8">
+					<t:textfield class="form-control" t:id="name" t:value="name" placeholder="${message:register.name}"></t:textfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="surname">
+					${message:register.surname}
+				</t:label>
+				<div class="col-sm-8">
+					<t:textfield class="form-control" t:id="surname" t:value="surname" placeholder="${message:register.surname}"></t:textfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="email">
+					${message:register.email}
+				</t:label>
+				<div class="col-sm-8">
+					<t:textfield class="form-control" t:id="email" t:value="email" placeholder="${message:register.email}"></t:textfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="password">
+					${message:register.password}
+				</t:label>
+				<div class="col-sm-8">
+					<t:passwordfield class="form-control" t:id="password" t:value="password" placeholder="${message:register.password}"></t:passwordfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<t:label class="col-sm-4 control-label" t:for="repeatPassword">
+					${message:register.repassword}
+				</t:label>
+				<div class="col-sm-8">
+					<t:passwordfield class="form-control" t:id="repeatPassword" t:value="repeatPassword" placeholder="${message:register.repassword}"></t:passwordfield>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-8">
+					<t:submit class="btn btn-default" value="${message:register.submit}"></t:submit>
+				</div>
+			</div>
+		</t:form>
+</html>
