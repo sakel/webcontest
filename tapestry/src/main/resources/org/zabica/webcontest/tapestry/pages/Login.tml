@@ -1,21 +1,23 @@
 <html t:type="layout" title="${message:login.title}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-      <t:form  method="post" class="form-horizontal">
+      <t:form  method="post" class="form-horizontal" t:id="login">
+      		<t:errors />
+      
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" t:for="email">
+				<t:label class="col-sm-4 control-label" t:for="emailField">
 					${message:login.email}
 				</t:label>
 				<div class="col-sm-8">
-					<t:textfield class="form-control" t:id="email" t:value="email" placeholder="${message:login.email}"></t:textfield>
+					<t:textfield class="form-control" t:id="emailField" t:value="email" t:validate="required,regexp" placeholder="${message:login.email}"></t:textfield>
 				</div>
 			</div>
 			<div class="form-group">
-				<t:label class="col-sm-4 control-label" t:for="password">
+				<t:label class="col-sm-4 control-label" t:for="passwordField">
 					${message:login.password}
 				</t:label>
 				<div class="col-sm-8">
-					<t:passwordfield class="form-control" t:id="password" t:value="password" placeholder="${message:login.password}"></t:passwordfield>
+					<t:passwordfield class="form-control" t:id="passwordField" t:value="password" t:validate="required,minlength=4" placeholder="${message:login.password}"></t:passwordfield>
 				</div>
 			</div>
 			<div class="form-group">

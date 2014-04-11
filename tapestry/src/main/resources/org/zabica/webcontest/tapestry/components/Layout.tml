@@ -13,6 +13,7 @@
 		<script src="${context:layout/jquery-1.11.0.js}"></script>
 		<script src="${context:layout/bootstrap-datepicker.js}"></script>
 		<title>${title}</title>
+		
 	</head>
 	<body>
 	
@@ -27,10 +28,15 @@
 					<div class="col-sm-offset-8 col-md-1">
 					&nbsp;&nbsp;
 					</div>
-					<t:if test="true">
+					${pageName}
+					
+					
+					
+					<t:if test="user">
 						<div class="col-md-2">
-							<t:pagelink page="language" parameters="[locale=sl_SI,source=url]"><img class="langflag" alt="Slovensko" src="${context:layout/images/slo.png}" /></t:pagelink>
-							<t:pagelink page="language" parameters="[locale=en_US,source=url]"><img class="langflag" alt="English" src="${context:layout/images/usa.png}" /></t:pagelink>
+							<t:loop source="localeChoices" value="localeChoice">
+								<t:pagelink page="language" parameters="localeChoice.params"><img class="langflag" alt="${localeChoice.language}" src="${localeChoice.flagAsset.toClientURL()}" /></t:pagelink>
+							</t:loop>
 						</div>
 						<div class="col-md-1">
 							<t:pagelink page="logout">${message:logout}</t:pagelink>

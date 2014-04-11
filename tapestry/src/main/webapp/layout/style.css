@@ -105,6 +105,10 @@ a.contesticon:hover {
 	height: 16px;
 }
 
+submit.searchButton {
+	height: 32px;
+}
+
 button.searchButton {
 	height: 32px;
 }

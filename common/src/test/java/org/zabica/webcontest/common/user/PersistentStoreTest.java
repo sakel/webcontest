@@ -1,8 +1,5 @@
 package org.zabica.webcontest.common.user;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

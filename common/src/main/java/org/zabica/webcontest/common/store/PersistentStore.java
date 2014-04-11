@@ -46,7 +46,7 @@ public class PersistentStore {
 	public void deinit() {
 		this.graph.close();
 	}
-	
+
 	public String getStoreFile() {
 		return storeFile;
 	}
@@ -77,7 +77,7 @@ public class PersistentStore {
 		
 		return this.graph.update(u);
 	}
-	
+
 	public boolean removeUser(String email) {
 		User u = getUser(email);
 		HGHandle handle = this.graph.getHandle(u);
@@ -86,11 +86,11 @@ public class PersistentStore {
 		}
 		return false;
 	}
-	
+
 	public List<User> getAllUsers() {
 		return this.graph.getAll(hg.typePlus(User.class));
 	}
-	
+
 	public List<Conference> getConferences(Date date, List<String> tags) {
 		List<Conference> selected_confs = new ArrayList<>();
 		if(date == null)
@@ -116,18 +116,18 @@ public class PersistentStore {
 		
 		return selected_confs;
 	}
-	
+
 	public boolean addConference(Conference conf) {
 		this.graph.add(conf);
 		
 		return true;
 	}
-	
+
 	public Conference getConference(String uuid) {
 		Conference conf = this.graph.getOne(hg.and(hg.type(Conference.class), hg.eq("id", uuid)));
 		return conf;
 	}
-	
+
 	public void remConference(String uuid) {
 		Conference conf = this.graph.getOne(hg.and(hg.type(Conference.class), hg.eq("id", uuid)));
 		HGHandle handle = this.graph.getHandle(conf);

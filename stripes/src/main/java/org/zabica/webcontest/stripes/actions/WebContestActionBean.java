@@ -106,7 +106,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 			evt = "conferences";
 		}
 		RedirectResolution rr = new RedirectResolution(WebContestActionBean.class, evt);
-		System.out.println("PATH: " + rr.getPath());
+		LOG.debug("PATH: " + rr.getPath());
 		return rr;
 	}
 
@@ -117,7 +117,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	
 	@HandlesEvent("doLogin")
 	public Resolution doLogin() {
-		System.out.println("User successfully logged in");
+		LOG.debug("User successfully logged in");
 		return new RedirectResolution(WebContestActionBean.class, "conferences");
 	}
 	
@@ -128,7 +128,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	
 	@HandlesEvent("doRegister")
 	public Resolution doRegister() {
-		System.out.println("Registering user: " + this.register.getEmail());
+		LOG.debug("Registering user: " + this.register.getEmail());
 		if(!this.dbbean.addUser(this.register)) {
 			LOG.error("Could not persist user: " + this.register.getEmail());
 			setAlreadyExists(true);
@@ -141,7 +141,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	@HandlesEvent("users")
 	public Resolution users() {
 		this.users = this.dbbean.getAllUsers();
-		System.out.println("Number of users: " + this.users.size());
+		LOG.debug("Number of users: " + this.users.size());
 		
 		return new ForwardResolution("/views/users.jsp");
 	}
@@ -159,13 +159,13 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	@HandlesEvent("conference")
 	public Resolution conference() {
 		
-		System.out.println("UUID = " + this.confid + " --- " + getContext().getRequest().getParameter("confid"));
+		LOG.debug("UUID = " + this.confid + " --- " + getContext().getRequest().getParameter("confid"));
 		
 		this.conference = this.dbbean.getConference(confid);
 		if(this.conference == null) {
 			return new RedirectResolution(WebContestActionBean.class, "conferences");
 		}
-		System.out.println(this.conference.getDescription());
+		LOG.debug(this.conference.getDescription());
 		return new ForwardResolution("/views/conference.jsp");
 	}
 	
@@ -180,9 +180,9 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	public Resolution doAddConf() {
 		if(!this.dbbean.addConference(conference)) {
 			LOG.error("Could not add ");
-			System.out.println("Could not add conference");
+			LOG.debug("Could not add conference");
 		} else {
-			System.out.println("ADDEDDDDDD");
+			LOG.debug("ADDEDDDDDD");
 		}
 		
 		return new RedirectResolution(WebContestActionBean.class, "conferences");
@@ -202,7 +202,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	
 	@HandlesEvent("setlanguage")
 	public Resolution setlanguage() {
-		System.out.println("Setting locale: " + this.locale);
+		LOG.debug("Setting locale: " + this.locale);
 		this.context.getUser().setLocale(this.locale);
 		this.dbbean.updateUser(this.context.getUser());
 		return new RedirectResolution(this.source, true);
@@ -213,7 +213,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 			throws Exception {
 		for(List<ValidationError> errs : errors.values()) {
 			for(ValidationError err : errs) {
-				System.out.println(err.getFieldName() + " " + err.getMessage(Locale.getDefault()));
+				LOG.debug(err.getFieldName() + " " + err.getMessage(Locale.getDefault()));
 			}
 		}
 		
@@ -232,7 +232,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	
 	@ValidationMethod(on = { "doRegister" })
 	public void validateRegister(ValidationErrors errors) {
-		System.out.println("PASS: " + this.register.getRepeatPassword() + " :: " + this.register.getPassword());
+		LOG.debug("PASS: " + this.register.getRepeatPassword() + " :: " + this.register.getPassword());
 		if(!this.register.getRepeatPassword().equals(this.register.getPassword())) {
 			errors.add("register.repeatPassword", new ScopedLocalizableError("", "notEqual"));
 		}

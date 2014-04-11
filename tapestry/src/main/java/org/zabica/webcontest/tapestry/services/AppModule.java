@@ -1,17 +1,23 @@
 package org.zabica.webcontest.tapestry.services;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
-import org.apache.tapestry5.*;
+import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.Translator;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Local;
+import org.apache.tapestry5.ioc.services.ThreadLocale;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.zabica.webcontest.tapestry.translators.StringListTranslator;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
@@ -19,6 +25,9 @@ import org.slf4j.Logger;
  */
 public class AppModule
 {
+	
+	public static Logger LOG = LoggerFactory.getLogger(AppModule.class);
+	
     public static void bind(ServiceBinder binder)
     {
         // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
@@ -27,6 +36,10 @@ public class AppModule
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+    	
+    	binder.bind(DataStore.class, DataStoreImpl.class).eagerLoad();
+    	binder.bind(ContextAssetResolver.class, ContextAssetResolverImpl.class);
+    	binder.bind(LocaleManager.class, LocaleManagerImpl.class);
     }
 
     public static void contributeFactoryDefaults(
@@ -50,6 +63,19 @@ public class AppModule
         // you can extend this list of locales (it's a comma separated series of locale names;
         // the first locale name is the default when there's no reasonable match).
         configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en");
+        
+        Properties props = new Properties();
+        try {
+        	ClassLoader cl = new Object(){}.getClass().getClassLoader();
+        	InputStream is = cl.getResourceAsStream("application.properties");
+			props.load(is);
+			
+			for(String key : props.stringPropertyNames()) {
+				configuration.add(key, props.getProperty(key));
+			}
+		} catch (IOException e) {
+			AppModule.LOG.error("Could not load properties");
+		}
     }
 
 
@@ -113,5 +139,10 @@ public class AppModule
         // within the pipeline.
 
         configuration.add("Timing", filter);
+    }    
+    
+    public static void contributeTranslatorAlternatesSource(MappedConfiguration<String, Translator> configuration, ThreadLocale threadLocale) {
+        configuration.add("stringlist", new StringListTranslator());
     }
+    
 }

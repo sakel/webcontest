@@ -1,0 +1,59 @@
+<html t:type="layout" title="${message:login.title}"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+     	<aside class="col-md-offset-2 col-md-8">
+		<t:form  method="post" class="form-horizontal">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<span class="fa fa-tag"></span>
+				</span>
+			
+				<t:textfield class="form-control" t:id="tags" t:value="tags" placeholder="${message:conf.tags}"></t:textfield>
+				<span class="input-group-addon">
+					<span class="fa fa-calendar"></span>
+				</span>
+				
+				<t:datefield class="form-control" t:id="date" t:value="date" placeholder="${message:date.format}"></t:datefield>
+    			<span class="input-group-addon searchButton">
+    				<t:submit class="fa fa-search"></t:submit>
+    				<input type="submit"><span class="fa fa-search"></span></input>
+				</span>
+				<span class="input-group-addon">
+					<t:pagelink class="contesticon" page="conferences"><span class="fa fa-plus"></span></t:pagelink>
+				</span>
+			</div>
+		</t:form>
+		<div class="btn-toolbar" role="toolbar"></div>
+	</aside>
+	<aside class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<!-- Table -->
+			<table class="table fixedtable">
+			<t:loop source="conferences" value="conference">
+				<tr>
+					<th>${message:start}</th>
+					<th>${message:conf.title}</th>
+					<th>${message:conf.description}</th>
+					<th>${message:conf.location}</th>
+				</tr>
+				<tr class="conferences mouseover">
+					<td>${conference.start}</td>
+					<td>${conference.title}</td>
+					<td>${conference.description}</td>
+					<td>${conference.location}</td>
+				</tr>
+			</t:loop>
+			
+
+				<!-- <c:forEach items="${actionBean.conferences}" var="conference"> -->
+					<!--  <stripes:url beanclass="org.zabica.webcontest.stripes.actions.WebContestActionBean" event="conference" var="confurl">
+						<stripes:param name="confid">${conference.id}</stripes:param>
+					</stripes:url> -->
+					<!--  onclick="location.href='${confurl}';"  -->
+					
+				<!-- </c:forEach> -->
+			</table>
+		</div>
+
+	</aside>
+</html>

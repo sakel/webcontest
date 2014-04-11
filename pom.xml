@@ -83,6 +83,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+
 			<!-- Stripes -->
 			<dependency>
 				<groupId>net.sourceforge.stripes</groupId>
