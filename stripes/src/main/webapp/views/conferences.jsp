@@ -20,12 +20,12 @@
 					<span class="fa fa-tag"></span>
 				</span>
 			
-				<input name="tags" type="text" class="form-control" />
+				<input name="tags" type="text" class="form-control" placeholder="<fmt:message key="conf.tags" />" />
 				<span class="input-group-addon">
 					<span class="fa fa-calendar"></span>
 				</span>
 				
-				<stripes:text name="date" class="form-control" formatType="date" formatPattern="${dateformat}" role="datepicker"></stripes:text>
+				<stripes:text name="date" class="form-control" formatType="date" formatPattern="${dateformat}" role="datepicker" placeholder="${dateformat}"></stripes:text>
     			<span class="input-group-addon searchButton">
 					<button type="submit" name="conferences" class="searchButton">
 						<span class="fa fa-search"></span>

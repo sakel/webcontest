@@ -1,14 +1,15 @@
 <html t:type="layout" title="${message:register.title}"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
-      <t:form  method="post" class="form-horizontal" t:id="register">
-      		<t:errors />
-      		<div class="form-group">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<div class="col-md-6 col-md-offset-3">
+		<t:form method="post" class="form-horizontal" t:id="register">
+			<t:errors />
+			<div class="form-group">
 				<t:label class="col-sm-4 control-label" t:for="nameField">
 					${message:register.name}
 				</t:label>
 				<div class="col-sm-8">
-					<t:textfield class="form-control" t:id="nameField" t:value="name" t:validate="required,minlength=2" placeholder="${message:register.name}"></t:textfield>
+					<t:textfield class="form-control" t:id="nameField"
+						t:value="name" t:validate="required,minlength=2" placeholder="${message:register.name}"></t:textfield>
 				</div>
 			</div>
 			<div class="form-group">
@@ -16,7 +17,8 @@
 					${message:register.surname}
 				</t:label>
 				<div class="col-sm-8">
-					<t:textfield class="form-control" t:id="surnameField" t:value="surname" t:validate="required,minlength=2" placeholder="${message:register.surname}"></t:textfield>
+					<t:textfield class="form-control" t:id="surnameField"
+						t:value="surname" t:validate="required,minlength=2" placeholder="${message:register.surname}"></t:textfield>
 				</div>
 			</div>
 			<div class="form-group">
@@ -24,7 +26,8 @@
 					${message:register.email}
 				</t:label>
 				<div class="col-sm-8">
-					<t:textfield class="form-control" t:id="emailField" t:value="email" t:validate="required,regexp" placeholder="${message:register.email}"></t:textfield>
+					<t:textfield class="form-control" t:id="emailField"
+						t:value="email" t:validate="required,regexp" placeholder="${message:register.email}"></t:textfield>
 				</div>
 			</div>
 			<div class="form-group">
@@ -32,7 +35,8 @@
 					${message:register.password}
 				</t:label>
 				<div class="col-sm-8">
-					<t:passwordfield class="form-control" t:id="passwordField" t:value="password" t:validate="required,minlength=4" placeholder="${message:register.password}"></t:passwordfield>
+					<t:passwordfield class="form-control" t:id="passwordField"
+						t:value="password" t:validate="required,minlength=4" placeholder="${message:register.password}"></t:passwordfield>
 				</div>
 			</div>
 			<div class="form-group">
@@ -40,7 +44,9 @@
 					${message:register.repassword}
 				</t:label>
 				<div class="col-sm-8">
-					<t:passwordfield class="form-control" t:id="repeatPasswordField" t:value="repeatPassword" t:validate="required,minlength=4" placeholder="${message:register.repassword}"></t:passwordfield>
+					<t:passwordfield class="form-control" t:id="repeatPasswordField"
+						t:value="repeatPassword" t:validate="required,minlength=4"
+						placeholder="${message:register.repassword}"></t:passwordfield>
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,4 +55,5 @@
 				</div>
 			</div>
 		</t:form>
+	</div>
 </html>

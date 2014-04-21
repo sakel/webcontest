@@ -201,7 +201,7 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	}
 	
 	@HandlesEvent("setlanguage")
-	public Resolution setlanguage() {
+	public Resolution setLanguage() {
 		LOG.debug("Setting locale: " + this.locale);
 		this.context.getUser().setLocale(this.locale);
 		this.dbbean.updateUser(this.context.getUser());

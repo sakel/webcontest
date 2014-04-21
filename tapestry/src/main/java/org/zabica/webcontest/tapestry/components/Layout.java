@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.annotations.AfterRender;
+import org.apache.tapestry5.annotations.BeginRender;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
@@ -23,8 +25,7 @@ import org.zabica.webcontest.tapestry.services.LocaleManager;
  * Layout component for pages of application tapestry.
  */
 @Import(stylesheet = {"context:layout/layout.css"})
-public class Layout extends BasePage
-{
+public class Layout extends BasePage {
 	private static Logger LOG = LoggerFactory.getLogger(Layout.class);
 	
     /**
@@ -59,6 +60,7 @@ public class Layout extends BasePage
     @Inject
     private RequestGlobals requestGlobals;
     
+    
     public List<LocaleChoiceDescriptor> getLocaleChoices() {
     	LOG.debug("Getting locale choices");
     	StringBuffer url = this.requestGlobals.getHTTPServletRequest().getRequestURL();
@@ -78,6 +80,17 @@ public class Layout extends BasePage
     	return locales;
     }
     
+    @BeginRender
+    public void beforeRender() {
+    	LOG.debug("Blah RENDER");
+    	//this.javaScriptSupport.addScript("jQuery(document).ready(function() {kalendar('%s');});", this.componentResources.getMessages().get("cal.date.format"));
+    }
+
+    @AfterRender
+    public void afterRender() {
+    	this.javaScriptSupport.addScript("kalendar(\"%s\");", this.componentResources.getMessages().get("cal.date.format"));
+    }
+    
     public String getCurrentPage() {
     	return this.componentResources.getPageName();
     }
@@ -91,6 +104,6 @@ public class Layout extends BasePage
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "About", "Contact", "Login", "Logout", "Register", "Conferences"};
+        return new String[]{"Index", "About", "Contact", "Login", "Logout", "Register", "Conferences", "Users"};
     }
 }

@@ -47,6 +47,6 @@ public class Login extends BasePage {
 	
 	public Object onSuccessFromLogin() {
 		
-		return Login.class;
+		return Conferences.class;
 	}
 }

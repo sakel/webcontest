@@ -1,12 +1,15 @@
 package org.zabica.webcontest.tapestry.pages;
 
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.annotations.Environmental;
 import org.apache.tapestry5.annotations.SessionAttribute;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.Context;
 import org.apache.tapestry5.services.ContextValueEncoder;
+import org.apache.tapestry5.services.LocalizationSetter;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.apache.tapestry5.services.TranslatorSource;
+import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zabica.webcontest.common.user.User;
@@ -29,6 +32,9 @@ public abstract class BasePage {
     @Inject
     protected ContextValueEncoder valueEncoder;
     
+    @Environmental
+    protected JavaScriptSupport javaScriptSupport;
+    
     @Inject
     protected Context context;
     
@@ -41,9 +47,8 @@ public abstract class BasePage {
     @Inject
     protected PageRenderLinkSource linkSource;
     
-    public Object onActionLanguage() {
-    	return "";
-    }
+    @Inject
+    protected LocalizationSetter localizationSetter;
     
     public User getUser() {
     	LOG.debug("BASE: User is null? " + (this.user == null ? "true" : this.user.getEmail()));

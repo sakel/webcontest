@@ -1,25 +1,26 @@
-<html t:type="layout" title="${message:login.title}"
+<html t:type="layout" title="${message:conf.pagetitle}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
      	<aside class="col-md-offset-2 col-md-8">
-		<t:form  method="post" class="form-horizontal">
+		<t:form  method="post" class="form-horizontal" t:id="filter">
 			<div class="input-group">
 				<span class="input-group-addon">
 					<span class="fa fa-tag"></span>
 				</span>
 			
-				<t:textfield class="form-control" t:id="tags" t:value="tags" placeholder="${message:conf.tags}"></t:textfield>
+				<t:textfield class="form-control" t:id="tagsField" t:value="tags" placeholder="${message:conf.tags}" translate="tags"></t:textfield>
 				<span class="input-group-addon">
 					<span class="fa fa-calendar"></span>
 				</span>
 				
-				<t:datefield class="form-control" t:id="date" t:value="date" placeholder="${message:date.format}"></t:datefield>
+				<t:textfield class="form-control" t:id="dateField" t:value="date" placeholder="${message:date.format}" role="datepicker"></t:textfield>
     			<span class="input-group-addon searchButton">
-    				<t:submit class="fa fa-search"></t:submit>
-    				<input type="submit"><span class="fa fa-search"></span></input>
+					<button class="searchButton" type="submit">
+						<span class="fa fa-search"></span>
+					</button>
 				</span>
 				<span class="input-group-addon">
-					<t:pagelink class="contesticon" page="conferences"><span class="fa fa-plus"></span></t:pagelink>
+					<t:pagelink class="contesticon" page="addconference"><span class="fa fa-plus"></span></t:pagelink>
 				</span>
 			</div>
 		</t:form>
@@ -29,14 +30,14 @@
 		<div class="panel panel-default">
 			<!-- Table -->
 			<table class="table fixedtable">
-			<t:loop source="conferences" value="conference">
 				<tr>
-					<th>${message:start}</th>
+					<th>${message:conf.start}</th>
 					<th>${message:conf.title}</th>
 					<th>${message:conf.description}</th>
 					<th>${message:conf.location}</th>
 				</tr>
-				<tr class="conferences mouseover">
+			<t:loop source="conferences" value="conference">
+				<tr class="conferences mouseover" onclick="location.href='${confurl}';">
 					<td>${conference.start}</td>
 					<td>${conference.title}</td>
 					<td>${conference.description}</td>
