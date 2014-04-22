@@ -19,7 +19,8 @@
 						<%-- <fmt:message key="addconf.title" /> --%>
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.title" name="conference.title" />
+						<fmt:message key="conf.title" var="conftitle"/>
+						<stripes:text class="form-control" id="conf.title" name="conference.title" placeholder="${conftitle}" />
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.title')}">
@@ -36,10 +37,11 @@
 				
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.description">
-						<fmt:message key="conf.description" />
+						<fmt:message key="conf.description" var="confdesc"/>
+						${confdesc}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.description" name="conference.description" />
+						<stripes:text class="form-control" id="conf.description" name="conference.description" placeholder="${confdesc}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.description')}">
@@ -56,13 +58,10 @@
 				
 								<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.start">
-						<fmt:message key="conf.start" />
+						<fmt:message key="conf.start"/>
 					</stripes:label>
-					<div class="col-sm-5">
-						<stripes:text class="form-control" id="conf.start" name="conference.start" role="datepicker"/>
-					</div>
-					<div class="col-sm-3">
-						<fmt:message key="date.format" />
+					<div class="col-sm-8">
+						<stripes:text class="form-control" id="conf.start" name="conference.start" role="datepicker" placeholder="${dateformat}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.start')}">
@@ -79,10 +78,11 @@
 				
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.duration">
-						<fmt:message key="conf.duration" />
+						<fmt:message key="conf.duration" var="confdur"/>
+						${confdur}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control datepicker" id="conf.duration" name="conference.duration" />
+						<stripes:text class="form-control datepicker" id="conf.duration" name="conference.duration" placeholder="${confdur}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.duration')}">
@@ -101,11 +101,8 @@
 					<stripes:label class="col-sm-4 control-label" for="conf.regdeadline">
 						<fmt:message key="conf.regdeadline" />
 					</stripes:label>
-					<div class="col-sm-5">
-						<stripes:text class="form-control" id="conf.regdeadline" name="conference.registrationDeadline" role="datepicker" />
-					</div>
-					<div class="col-sm-3">
-						<fmt:message key="date.format" />
+					<div class="col-sm-8">
+						<stripes:text class="form-control" id="conf.regdeadline" name="conference.registrationDeadline" role="datepicker" placeholder="${dateformat}" />
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.registrationDeadline')}">
@@ -121,10 +118,11 @@
 				</c:if>
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.maxattendees">
-						<fmt:message key="conf.maxattendees" />
+						<fmt:message key="conf.maxattendees" var="confmaxatt"/>
+						${confmaxatt}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.maxattendees" name="conference.maxAttendees" />
+						<stripes:text class="form-control" id="conf.maxattendees" name="conference.maxAttendees" placeholder="${confmaxatt}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.maxAttendees')}">
@@ -141,10 +139,11 @@
 
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.fee">
-						<fmt:message key="conf.fee" />
+						<fmt:message key="conf.fee" var="conffee"/>
+						${conffee}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.fee" name="conference.fee" />
+						<stripes:text class="form-control" id="conf.fee" name="conference.fee" placeholder="${conffee}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.fee')}">
@@ -161,10 +160,11 @@
 
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.location">
-						<fmt:message key="conf.location" />
+						<fmt:message key="conf.location" var="confloc"/>
+						${confloc}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.location" name="conference.location" />
+						<stripes:text class="form-control" id="conf.location" name="conference.location" placeholder="${confloc}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.location')}">
@@ -181,10 +181,11 @@
 				
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="conf.tags">
-						<fmt:message key="conf.tags" />
+						<fmt:message key="conf.tags" var="conftags" />
+						${conftags}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="conf.tags" name="conference.tags" />
+						<stripes:text class="form-control" id="conf.tags" name="conference.tags" placeholder="${conftags}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'conference.tags')}">

@@ -1,26 +1,30 @@
 <html t:type="layout" title="${message:conf.pagetitle}"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
-     	<aside class="col-md-offset-2 col-md-8">
-		<t:form  method="post" class="form-horizontal" t:id="filter">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<aside class="col-md-offset-2 col-md-8">
+		<t:form method="post" class="form-horizontal" t:id="filter">
+			<t:errors />
 			<div class="input-group">
 				<span class="input-group-addon">
 					<span class="fa fa-tag"></span>
 				</span>
-			
-				<t:textfield class="form-control" t:id="tagsField" t:value="tags" placeholder="${message:conf.tags}" translate="tags"></t:textfield>
+
+				<t:textfield class="form-control" t:id="tagsField"
+					t:value="tags" placeholder="${message:conf.tags}" translate="tags"></t:textfield>
 				<span class="input-group-addon">
 					<span class="fa fa-calendar"></span>
 				</span>
-				
-				<t:textfield class="form-control" t:id="dateField" t:value="date" placeholder="${message:date.format}" role="datepicker"></t:textfield>
-    			<span class="input-group-addon searchButton">
+
+				<t:textfield class="form-control" t:id="dateField"
+					t:value="date" placeholder="${message:date.format}" role="datepicker"></t:textfield>
+				<span class="input-group-addon searchButton">
 					<button class="searchButton" type="submit">
 						<span class="fa fa-search"></span>
 					</button>
 				</span>
 				<span class="input-group-addon">
-					<t:pagelink class="contesticon" page="addconference"><span class="fa fa-plus"></span></t:pagelink>
+					<t:pagelink class="contesticon" page="addconference">
+						<span class="fa fa-plus"></span>
+					</t:pagelink>
 				</span>
 			</div>
 		</t:form>
@@ -29,31 +33,20 @@
 	<aside class="col-md-offset-2 col-md-8">
 		<div class="panel panel-default">
 			<!-- Table -->
-			<table class="table fixedtable">
-				<tr>
-					<th>${message:conf.start}</th>
-					<th>${message:conf.title}</th>
-					<th>${message:conf.description}</th>
-					<th>${message:conf.location}</th>
-				</tr>
-			<t:loop source="conferences" value="conference">
-				<tr class="conferences mouseover" onclick="location.href='${confurl}';">
-					<td>${conference.start}</td>
-					<td>${conference.title}</td>
-					<td>${conference.description}</td>
-					<td>${conference.location}</td>
-				</tr>
-			</t:loop>
-			
-
-				<!-- <c:forEach items="${actionBean.conferences}" var="conference"> -->
-					<!--  <stripes:url beanclass="org.zabica.webcontest.stripes.actions.WebContestActionBean" event="conference" var="confurl">
-						<stripes:param name="confid">${conference.id}</stripes:param>
-					</stripes:url> -->
-					<!--  onclick="location.href='${confurl}';"  -->
-					
-				<!-- </c:forEach> -->
-			</table>
+			<t:grid t:type="grid" t:source="conferences" t:row="conference"
+				t:rowsPerPage="16" t:pagerPosition="bottom"
+				t:exclude="id,fee,maxattendees,registrationdeadline,duration"
+				t:reorder="start,title,description,location"
+				t:class="table fixedtable" t:rowClass="rowClass">
+				<p:startCell>
+                	<t:pagelink page="conferenceid" context="conference.id">
+	                	<t:output format="message:date.format" value="conference.start" />
+                	</t:pagelink>
+            	</p:startCell>
+            	<p:titleCell>
+                	<t:pagelink page="conferenceid" context="conference.id">${conference.title}</t:pagelink>
+            	</p:titleCell>
+			</t:grid>
 		</div>
 
 	</aside>

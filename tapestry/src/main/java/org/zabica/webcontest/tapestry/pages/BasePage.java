@@ -54,4 +54,12 @@ public abstract class BasePage {
     	LOG.debug("BASE: User is null? " + (this.user == null ? "true" : this.user.getEmail()));
     	return this.user;
     }
+    
+    public Object onActivate() {
+    	if(this.user != null) {
+    		return null;
+    	} else {
+    		return Login.class;
+    	}
+    }
 }

@@ -38,8 +38,13 @@ public class Register extends BasePage {
 	@Component
 	private Form register;
 	
-	public void onActivate() {
-		LOG.debug("Activating Register");
+	@Override
+	public Object onActivate() {
+		if(this.user != null) {
+			return Conferences.class;
+		}
+		
+		return null;
 	}
 	
 	public void onValidateFromRegister() {

@@ -25,11 +25,15 @@ public class Login extends BasePage {
 	
     @InjectComponent
     private PasswordField passwordField;
-    
-	public void onActivate() {
-		LOG.warn("Datastore: " + this.dataStore.getStoreFile());
-	}
 	
+    @Override
+    public Object onActivate() {
+    	if(this.user != null) {
+    		return Conferences.class;
+    	}
+    	return null;
+    }
+    
 	public void onValidateFromLogin() {
 		User user = this.dataStore.getUser(this.email);
 		if(user == null) {

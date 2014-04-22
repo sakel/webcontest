@@ -66,9 +66,9 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	@ValidateNestedProperties({
 		@Validate(field="title", required=true, on = { "doAddConf" } ),
 		@Validate(field="description", required=true, on = { "doAddConf" } ),
-		@Validate(field="start", required=true, mask="\\d{2}/\\d{2}/\\d{4}", on = { "doAddConf" } ),
+		@Validate(field="start", required=true, on = { "doAddConf" } ),
 		@Validate(field="duration", required=true, on = { "doAddConf" } ),
-		@Validate(field="registrationDeadline", required=true, mask="\\d{2}/\\d{2}/\\d{4}", on = { "doAddConf" } ),
+		@Validate(field="registrationDeadline", required=true, on = { "doAddConf" } ),
 		@Validate(field="maxAttendees", required=true, on = { "doAddConf" } ),
 		@Validate(field="fee", required=true, on = { "doAddConf" } ),
 		@Validate(field="location", required=true, on = { "doAddConf" } ),
@@ -179,7 +179,6 @@ public class WebContestActionBean implements ActionBean, ValidationErrorHandler 
 	@HandlesEvent("doAddConf")
 	public Resolution doAddConf() {
 		if(!this.dbbean.addConference(conference)) {
-			LOG.error("Could not add ");
 			LOG.debug("Could not add conference");
 		} else {
 			LOG.debug("ADDEDDDDDD");

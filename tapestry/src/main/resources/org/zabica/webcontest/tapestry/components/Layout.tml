@@ -7,17 +7,20 @@
 	xmlns:p="tapestry:parameter">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="${context:layout/bootstrap.css}" media="screen" />
-		<link rel="stylesheet" type="text/css" href="${context:layout/font-awesome.css}" media="screen" />
-		<link rel="stylesheet" type="text/css" href="${context:layout/datepicker.css}" media="screen" />
+		<link rel="stylesheet" type="text/css" href="${context:layout/bootstrap.css}"
+			media="screen" />
+		<link rel="stylesheet" type="text/css" href="${context:layout/font-awesome.css}"
+			media="screen" />
+		<link rel="stylesheet" type="text/css" href="${context:layout/datepicker.css}"
+			media="screen" />
 		<script src="${context:layout/jquery-1.11.0.js}"></script>
 		<script src="${context:layout/bootstrap-datepicker.js}"></script>
 		<script src="${context:layout/custom.js}"></script>
 		<title>${title}</title>
-		
+
 	</head>
 	<body>
-	
+
 		<header id="pageHeader" class="page-header">
 			<div class="container">
 				<div class="row">
@@ -30,13 +33,16 @@
 					&nbsp;&nbsp;
 					</div>
 					${pageName}
-					
-					
-					
+
+
+
 					<t:if test="user">
 						<div class="col-md-2">
 							<t:loop source="localeChoices" value="localeChoice">
-								<t:pagelink page="language" parameters="localeChoice.params"><img class="langflag" alt="${localeChoice.language}" src="${localeChoice.flagAsset.toClientURL()}" /></t:pagelink>
+								<t:pagelink page="language" parameters="localeChoice.params">
+									<img class="langflag" alt="${localeChoice.language}"
+										src="${localeChoice.flagAsset.toClientURL()}" />
+								</t:pagelink>
 							</t:loop>
 						</div>
 						<div class="col-md-1">
@@ -48,15 +54,13 @@
 		</header>
 		<!-- start page -->
 		<article id="pageBody" class="container">
-			<aside id="loginFrame" class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<h2 id="formFrameTitle">
-						${title}
-					</h2>
-				</div>
-				<t:body />
-				<br style="clear: both;" />
-			</aside>
+			<div class="col-md-6 col-md-offset-2">
+				<h2 id="formFrameTitle">
+					${title}
+				</h2>
+			</div>
+			<t:body />
+			<br style="clear: both;" />
 		</article>
 		<!-- end page -->
 		<!-- start footer -->

@@ -18,10 +18,11 @@
 			<stripes:form beanclass="org.zabica.webcontest.stripes.actions.WebContestActionBean" method="post" class="form-horizontal">
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="email">
-						<fmt:message key="login.email" />
+						<fmt:message key="login.email" var="loginemail"/>
+						${loginemail}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="email" name="email" />
+						<stripes:text class="form-control" id="email" name="email" placeholder="${loginemail}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'email')}">
@@ -37,10 +38,11 @@
 				</c:if>
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="password">
-						<fmt:message key="login.password" />
+						<fmt:message key="login.password" var="loginpass"/>
+						${loginpass}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:password class="form-control" id="password" name="password" />
+						<stripes:password class="form-control" id="password" name="password" placeholder="${loginpass}" />
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'password')}">

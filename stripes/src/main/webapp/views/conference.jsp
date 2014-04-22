@@ -56,7 +56,7 @@
 				</tr>
 				<tr class="conferences">
 					<td><label><fmt:message key='conf.tags' /></label></td>
-					<td>${fn:escapeXml(actionBean.conference.tags)}</td>
+					<td><c:forEach items="${actionBean.conference.tags}" var="tag">${fn:escapeXml(tag)} </c:forEach> </td>
 				</tr>
 			</table>
 		</div>

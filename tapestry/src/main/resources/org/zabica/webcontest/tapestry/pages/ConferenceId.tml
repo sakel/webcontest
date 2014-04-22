@@ -1,0 +1,79 @@
+<html t:type="layout" title="${message:conf.pagetitle}"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<aside class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<table class="table fixedtable">
+				<tr>
+					<th>${message:confdetail.label}</th>
+					<th>${message:confdetail.value}</th>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.start}</label>
+					</td>
+					<td>
+						<t:output format="message:date.format" value="conference.start" />
+					</td> <!-- FORMATTING -->
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.title}</label>
+					</td>
+					<td>${conference.title}</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.description}</label>
+					</td>
+					<td>${conference.description}</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.duration}</label>
+					</td>
+					<td>${conference.duration} days</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.regdeadline}</label>
+					</td>
+					<td>
+						<t:output format="message:date.format" value="conference.registrationDeadline" />
+					</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.maxattendees}</label>
+					</td>
+					<td>${conference.maxattendees}</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.fee}</label>
+					</td>
+					<td>${conference.fee}</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.location}</label>
+					</td>
+					<td>${conference.location}</td>
+				</tr>
+				<tr class="conferences">
+					<td>
+						<label>${message:conf.tags}</label>
+					</td>
+					<td>
+						<t:loop source="conference.tags" value="tag">
+							${tag}
+						</t:loop>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</aside>
+	<aside class="col-md-offset-2 col-md-8">
+		<t:pagelink page="conferences" role="button" class="btn btn-default">${message:conf.back}
+		</t:pagelink>
+	</aside>
+</html>

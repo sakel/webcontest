@@ -42,6 +42,7 @@
 	</aside>
 	<aside class="col-md-offset-2 col-md-8">
 		<div class="panel panel-default">
+			
 			<!-- Table -->
 			<table class="table fixedtable">
 				<tr>
@@ -55,7 +56,7 @@
 						<stripes:param name="confid">${conference.id}</stripes:param>
 					</stripes:url>
 					<tr class="conferences mouseover" onclick="location.href='${confurl}';">
-						<td>${conference.start}</td>
+						<td><fmt:formatDate value="${conference.start}" type="date" pattern="${dateformat}"/></td>
 						<td>${fn:escapeXml(conference.title)}</td>
 						<td>${fn:escapeXml(conference.description)}</td>
 						<td>${fn:escapeXml(conference.location)}</td>

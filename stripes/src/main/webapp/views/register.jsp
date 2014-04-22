@@ -19,10 +19,11 @@
 			<stripes:form beanclass="org.zabica.webcontest.stripes.actions.WebContestActionBean" method="post" class="form-horizontal">
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="register.name">
-						<fmt:message key="register.name" />
+						<fmt:message key="register.name" var="regname"/>
+						${regname}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="register.name" name="register.name" />
+						<stripes:text class="form-control" id="register.name" name="register.name" placeholder="${regname}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'register.name')}">
@@ -39,10 +40,11 @@
 
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="register.surname">
-						<fmt:message key="register.surname" />
+						<fmt:message key="register.surname" var="regsur"/>
+						${regsur}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="register.surname" name="register.surname" />
+						<stripes:text class="form-control" id="register.surname" name="register.surname" placeholder="${regsur}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'register.surname')}">
@@ -58,10 +60,11 @@
 				</c:if>
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="register.email">
-						<fmt:message key="register.email" />
+						<fmt:message key="register.email" var="remail"/>
+						${remail}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:text class="form-control" id="register.email" name="register.email" />
+						<stripes:text class="form-control" id="register.email" name="register.email" placeholder="${remail}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'register.email')}">
@@ -86,10 +89,11 @@
 				</c:if>
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="register.password">
-						<fmt:message key="register.password" />
+						<fmt:message key="register.password" var="regpass"/>
+						${regpass}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:password class="form-control" id="register.password" name="register.password" />
+						<stripes:password class="form-control" id="register.password" name="register.password" placeholder="${regpass}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'register.password')}">
@@ -105,10 +109,11 @@
 				</c:if>
 				<div class="form-group">
 					<stripes:label class="col-sm-4 control-label" for="register.repeatPassword">
-						<fmt:message key="register.repassword" />
+						<fmt:message key="register.repassword" var="regrepass"/>
+						${regrepass}
 					</stripes:label>
 					<div class="col-sm-8">
-						<stripes:password class="form-control" id="register.repeatPassword" name="register.repeatPassword" />
+						<stripes:password class="form-control" id="register.repeatPassword" name="register.repeatPassword" placeholder="${regrepass}"/>
 					</div>
 				</div>
 				<c:if test="${stripes:hasErrors(actionBean, 'register.repeatPassword')}">

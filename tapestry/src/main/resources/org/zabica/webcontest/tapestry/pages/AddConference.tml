@@ -24,11 +24,8 @@
 					<t:label class="col-sm-4 control-label" t:for="startField">
 						${message:addconf.start}
 					</t:label>
-					<div class="col-sm-5">
-						<t:textfield class="form-control" t:id="startField" t:value="start" t:validate="required" placeholder="${message:addconf.start}" role="datepicker"></t:textfield>
-					</div>
-					<div class="col-sm-3">
-						${message:date.format}
+					<div class="col-sm-8">
+						<t:textfield class="form-control" t:id="startField" t:value="start" t:validate="required" role="datepicker" placeholder="${message:date.format}"></t:textfield>
 					</div>
 				</div>
 	      		<div class="form-group">
@@ -43,11 +40,8 @@
 					<t:label class="col-sm-4 control-label" t:for="regdeadlineField">
 						${message:addconf.regdeadline}
 					</t:label>
-					<div class="col-sm-5">
-						<t:textfield class="form-control" t:id="regdeadlineField" t:value="regdeadline" t:validate="required" placeholder="${message:addconf.regdeadline}" role="datepicker"></t:textfield>
-					</div>
-					<div class="col-sm-3">
-						${message:date.format}
+					<div class="col-sm-8">
+						<t:textfield class="form-control" t:id="regdeadlineField" t:value="regdeadline" t:validate="required" role="datepicker" placeholder="${message:date.format}"></t:textfield>
 					</div>
 				</div>
 	      		<div class="form-group">
@@ -83,7 +77,10 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-offset-4 col-sm-8">
+					<div class="col-sm-offset-4 col-sm-2">
+						<t:pagelink page="conferences" class="btn btn-default">${message:addconf.back}</t:pagelink>
+					</div>
+					<div class="col-sm-2">
 						<t:submit class="btn btn-default" value="${message:addconf.submit}"></t:submit>
 					</div>
 				</div>

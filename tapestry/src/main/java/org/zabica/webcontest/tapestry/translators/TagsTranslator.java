@@ -11,18 +11,17 @@ import org.apache.tapestry5.services.FormSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TagsTranslator implements Translator<List<String>> {
+public class TagsTranslator implements Translator<String[]> {
 	
 	private static Logger LOG = LoggerFactory.getLogger(TagsTranslator.class);
 	
 	private String name;
-	private Class<List<String>> type;
+	private Class<String[]> type;
 	private String messageKey = "tags-wrong-format";
 	
-	@SuppressWarnings("unchecked")
 	public TagsTranslator(String name) {
 		this.name = name;
-		this.type = (Class<List<String>>) new ArrayList<String>().getClass(); 
+		this.type = String[].class; 
 	}
 	
 	@Override
@@ -31,12 +30,12 @@ public class TagsTranslator implements Translator<List<String>> {
 	}
 
 	@Override
-	public String toClient(List<String> value) {
+	public String toClient(String[] value) {
 		StringBuffer sb = new StringBuffer();
 		int count = 1;
 		for(String s : value) {
 			sb.append(s);
-			if(count < value.size()) {
+			if(count < value.length) {
 				sb.append(",");
 			}
 			count++;
@@ -46,7 +45,7 @@ public class TagsTranslator implements Translator<List<String>> {
 	}
 
 	@Override
-	public Class<List<String>> getType() {
+	public Class<String[]> getType() {
 		return this.type;
 	}
 
@@ -56,7 +55,7 @@ public class TagsTranslator implements Translator<List<String>> {
 	}
 
 	@Override
-	public List<String> parseClient(Field field, String clientValue,
+	public String[] parseClient(Field field, String clientValue,
 			String message) throws ValidationException {
 		String[] tags = clientValue.split(",");
 		List<String> tagList = new ArrayList<String>();
@@ -67,7 +66,7 @@ public class TagsTranslator implements Translator<List<String>> {
 			tagList.add(tag);
 			LOG.debug("Added tag: " + tag);
 		}
-		return tagList;
+		return tagList.toArray(new String[0]);
 	}
 
 	@Override
