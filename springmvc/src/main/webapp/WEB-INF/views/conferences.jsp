@@ -19,11 +19,11 @@
 				<span class="input-group-addon">
 					<span class="fa fa-tag"></span>
 				</span>
-				<input name="tags" type="text" class="form-control" />
+			<input name="tags" type="text" class="form-control" placeholder="<spring:message code='conf.tags' text='Tags' />"/>
 				<span class="input-group-addon">
 					<span class="fa fa-calendar"></span>
 				</span>
-				<input name="date" type="text" class="form-control" role="datepicker" />
+				<input name="date" type="text" class="form-control" role="datepicker" placeholder="${dateformat}"/>
 				<span class="input-group-addon searchButton">
 					<button type="submit" class="searchButton">
 						<span class="fa fa-search"></span>
@@ -50,7 +50,7 @@
 				</tr>
 				<c:forEach items="${conferences}" var="conference">
 					<tr class="conferences mouseover" onclick="location.href='${contextpath}/webcontest/conference?confid=${conference.id}';">
-						<td><spring:eval expression="conference.start" /></td>
+						<td><fmt:formatDate value="${conference.start}" type="date" pattern="${dateformat}"/></td>
 						<td>${conference.title}</td>
 						<td>${conference.description}</td>
 						<td>${conference.location}</td>

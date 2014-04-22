@@ -23,7 +23,7 @@
 				</tr>
 				<tr class="conferences">
 					<td><label><spring:message code='conf.start' text='Start date' /></label></td>
-					<td><spring:eval expression="conference.start" /></td>
+					<td><fmt:formatDate value="${conference.start}" type="date" pattern="${dateformat}"/></td>
 				</tr>
 
 				<tr class="conferences">
@@ -48,7 +48,7 @@
 				</tr>
 				<tr class="conferences">
 					<td><label><spring:message code='conf.regdeadline' text='Registration Deadline' /></label></td>
-					<td>${conference.registrationDeadline}</td>
+					<td><fmt:formatDate value="${conference.registrationDeadline}" type="date" pattern="${dateformat}"/></td>
 				</tr>
 				<tr class="conferences">
 					<td><label><spring:message code='conf.fee' text='Fee' /></label></td>
